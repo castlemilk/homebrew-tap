@@ -26,8 +26,11 @@ cask "token-horizon" do
 
   app "TokenHorizon.app"
 
+  # The `app` artifact handles removal; only the LaunchAgent needs an explicit
+  # cleanup (deleting /Applications/TokenHorizon.app here would nuke a
+  # dev-installed copy on uninstall).
   uninstall launchctl: "local.benebsworth.token-horizon",
-            delete:    "/Applications/TokenHorizon.app"
+            delete:    "~/Library/LaunchAgents/local.benebsworth.token-horizon.plist"
 
   zap trash: [
     "~/.config/token-horizon",
