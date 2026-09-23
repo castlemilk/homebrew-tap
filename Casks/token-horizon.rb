@@ -3,16 +3,15 @@
 # This file lives in-repo as the source of truth. The published tap is
 #   https://github.com/castlemilk/homebrew-tap  (tap name: castlemilk/tap)
 #
-# Per release: bump `version` + `sha256` here (match
-# dist/TokenHorizon-<ver>.sha256, or the release's .sha256 asset) and run
-#   task brew-sync            # scripts/sync-homebrew-tap.sh
-# to copy this file into the tap and push it.
+# Per release: `scripts/release.sh` (task release) bumps `version` at tag
+# time; the release workflow fills in `sha256` from the built zip and pushes
+# this file to the tap automatically (manual fallback: task brew-sync).
 #
 # Users install with:
 #   brew tap castlemilk/tap
 #   brew install --cask token-horizon
 cask "token-horizon" do
-  version "0.3.5"
+  version "0.3.6"
   sha256 "0756bee2d1d23fdbc8baa2293f4572c29bb9b927984eaafd5d2f3f1512075515"
 
   url "https://github.com/castlemilk/token-horizon/releases/download/v#{version}/TokenHorizon-#{version}.zip"
