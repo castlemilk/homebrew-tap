@@ -3,7 +3,7 @@
 # This file lives in-repo as the source of truth. The published tap is
 #   https://github.com/castlemilk/homebrew-tap  (tap name: castlemilk/tap)
 #
-# Per release: `scripts/release.sh` (task release) bumps `version` at tag
+# Per release: `task release` bumps `version` at tag
 # time; the release workflow fills in `sha256` from the built zip and pushes
 # this file to the tap automatically (manual fallback: task brew-sync).
 #
@@ -11,15 +11,15 @@
 #   brew tap castlemilk/tap
 #   brew install --cask token-horizon
 cask "token-horizon" do
-  version "0.3.14"
-  sha256 "1864372fd7770b0fcda9c6d42f7828760a93d778b96ee14948c26bb7494ac9ba"
+  version "0.3.17"
+  sha256 "f51c99e231da74d9cd5655623a1dc26cd06ea1e3bb928c1cb25fac9dd6a6a44d"
 
   url "https://github.com/castlemilk/token-horizon/releases/download/v#{version}/TokenHorizon-#{version}.zip"
   name "Token Horizon"
   desc "Native macOS notch dashboard for AI token usage, costs, and plan limits"
   homepage "https://token-horizon.dev/"
 
-  auto_updates false
+  auto_updates true
   depends_on macos: :sonoma
   depends_on arch: :arm64
 
